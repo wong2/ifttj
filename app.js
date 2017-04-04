@@ -39,7 +39,7 @@ router.get('/:id', checkId, async (ctx, next) => {
       date: item.time,
     })
   }
-  ctx.type = 'application/rss+xml'
+  ctx.type = 'text/xml'
   ctx.body = feed.xml()
 })
 
