@@ -1,2 +1,1 @@
-# ifttj
-IFTTJ = IFTTT + JIKE
+## IFTTJ = IFTTT + JIKE
