@@ -1,0 +1,16 @@
+{
+  "apps" : [
+    {
+      "name": "ifttj",
+      "script": "app.js",
+      "exec_mode": "cluster",
+      "instances": 0,
+      "max_restarts": 3,
+      "restart_delay": 2000,
+      "env": {
+        "PORT": 3004,
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
