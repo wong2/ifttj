@@ -1,8 +1,8 @@
 function parse(body) {
-  let parts = body.split(/\n={3,}\n/)
+  let parts = body.split(/={3,}/)
   return {
-    text: parts[0],
-    link: parts[1] || ''
+    text: parts[0].trimRight(),
+    link: (parts[1] || '').trim()
   }
 }
 
