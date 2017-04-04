@@ -1,0 +1,25 @@
+{
+  "name": "ifttj",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wong2",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-mount": "^3.0.0",
+    "koa-router": "^7.1.1",
+    "koa-static": "^3.0.0",
+    "koa-views": "^6.0.1",
+    "mustache": "^2.3.0",
+    "redis": "^2.7.1",
+    "rss": "^1.2.2",
+    "shortid": "^2.2.8"
+  }
+}

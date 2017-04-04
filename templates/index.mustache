@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/static/yue.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0.4em 1em 6em;
+      background: #fff;
+    }
+    .yue {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .logo span {
+      color: #ffd200;
+    }
+    strong.thisthat {
+      color: #09f;
+    }
+  </style>
+</head>
+<body>
+  <div class="yue">
+    <h1 class="logo">IFTT<span>Jike</span></h1>
+    <blockquote>
+      <p>连接 <a href="https://ifttt.com/" target="_blank">IFTTT </a>和 <a href="http://ruguoapp.com/" target="_blank">即刻</a></p>
+    </blockquote>
+    <h2>原理</h2>
+    <p>IFTTT 支持 <a href="https://ifttt.com/maker_webhooks" target="_blank">Webhooks</a> ，而即刻支持 RSS 订阅源作为追踪对象，那我们只要在它们之间做一个 Webhooks 到 RSS 的转换，就可以把它们连接起来了</p>
+    <h2>开始</h2>
+    <p>就在你打开这个页面时，你已经得到了一个专属的地址：</p>
+    <pre><code>{{ url }}</code></pre>
+    <p>我们将使用它来配置 IFTTT 和 即刻（以『某人发了新 tweet 为例』）</p>
+    <h3>配置 IFTTT</h3>
+    <p>1. 在 IFTTT 创建新 Applet: <a href="https://ifttt.com/create" target="_blank">https://ifttt.com/create</a></p>
+    <p>2. <strong class="thisthat">this </strong>处选择 Twitter</p>
+    <p>3. trigger 选择 <strong>New tweet by a specific user</strong>，填入要监控的 Twitter id</p>
+    <img src="/static/images/trigger.jpg" />
+    <p>4. 进入 <strong class="thisthat">that</strong> 部分，搜索 <strong>webhook</strong> ，选择搜出来的 <strong>Maker Webhooks</strong></p>
+    <img src="/static/images/search.jpg" />
+    <p>5. 选择仅有的一个 action: <strong>Make a web request</strong></p>
+    <p>6. 填入你的专属 URL</p>
+    <pre><code>{{ url }}</code></pre>
+    <p>Method 选择 POST，Content Type 选择 text/plain，结果如图：</p>
+    <figure>
+      <img src="/static/images/config.jpg" />
+      <figcaption>URL 不一样是正常的</figcaption>
+    </figure>
+    <p>7: 配置 Body: Body 对应我们将在即刻看到的一条新消息内容，它分为两个部分：文本和链接。这个例子中，我们以推文作为文本部分，tweet 地址作为链接，在它们之间输入三个等号（ === ）作为分隔：</p>
+    <figure>
+      <img src="/static/images/body.jpg" />
+      <figcaption>注意3个等号哦</figcaption>
+    </figure>
+    <p>8. 点击 Create action，最后点击 Finish 结束 IFTTT 的配置</p>
+    <h3>即刻创建新提醒</h3>
+    <p>接下来，只要在即刻创建新提醒时，选择『RSS订阅源有更新』这个机器人，并填入你的专属 URL 就可以了！</p>
+    <pre><code>{{ url }}</code></pre>
+  </div>
+</body>
+
+</html>
