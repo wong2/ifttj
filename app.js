@@ -7,6 +7,7 @@ const static = require('koa-static')
 const mount = require('koa-mount')
 const shortid = require('shortid')
 const RSS = require('rss')
+const htmlToText = require('html-to-text')
 const model = require('./model')
 const utils = require('./utils')
 
@@ -31,9 +32,13 @@ router.get('/:id', checkId, async (ctx, next) => {
   const items = await model.getItems(id)
   const feed = new RSS({title: `IFTTJ: ${id}`})
   for (let item of items) {
+    let text = htmlToText.fromString(item.text, {
+      ignoreHref: true,
+      ignoreImage: true,
+    })
     feed.item({
       guid: item.id,
-      title: item.text,
+      title: text,
       description: item.text,
       url: item.link,
       date: item.time,
