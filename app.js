@@ -58,6 +58,7 @@ router.post('/:id', checkId, async (ctx, next) => {
 })
 
 
+app.proxy = true
 app.use(logger())
 app.use(bodyParser({
   enableTypes: ['text', 'json', 'form']
